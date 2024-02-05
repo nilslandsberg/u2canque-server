@@ -1,6 +1,7 @@
 const { Order } = require("../models/order");
 const { Customer } = require("../models/customer");
 const moment = require("moment");
+const momenttz = require("moment-timezone");
 
 exports.createNewOrder = async (req, res) => {
   try {
@@ -17,8 +18,19 @@ exports.createNewOrder = async (req, res) => {
       existingCustomer = await Customer.create(customer)
     }
 
+    // convert pickUpTime to UTC
+    const utcPickUpTime = momenttz.tz(pickUpTime, 'h:mma;', 'America/New_York').utc();
+
+    // Combine the date part from 'date' with the time part from 'utcPickUpTime'
+    const newDateTime = momenttz.utc(date).set({
+      hour: utcPickUpTime.hours(),
+      minute: utcPickUpTime.minutes(),
+      second: 0,
+      millisecond: 0
+    }).toDate();
+
     const newOrder = await Order.create({
-      date: date,
+      date: newDateTime,
       pickUpTime: pickUpTime,
       customer: existingCustomer._id,
       items: items
