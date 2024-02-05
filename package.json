@@ -1,0 +1,18 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "u2canque server for online orders",
+  "main": "y",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Nils Landsberg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
