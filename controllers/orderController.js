@@ -57,10 +57,10 @@ exports.getAllOrders = async (req, res) => {
 exports.getOrdersForTomorrow = async (req, res) => {
   try {
     const tomorrow = moment().add(1, 'day').startOf('day').toDate();
-
+    
     const ordersForTomorrow = await Order.find({
       date: { $gte: tomorrow, $lt: moment(tomorrow).endOf('day').toDate() }
-    }).populate('customer');
+    }).populate('customer').sort({ date: 1 });
 
     return res.status(200).json({ success: true, orders: ordersForTomorrow})
   } catch (err) {
