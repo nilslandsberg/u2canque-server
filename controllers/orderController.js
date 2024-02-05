@@ -7,7 +7,7 @@ exports.createNewOrder = async (req, res) => {
   try {
     console.log("request body: ", req.body)
     const { date, pickUpTime, customer, items } = req.body;
-
+    console.log(date);
     const { firstName, lastName, email, phone } = customer;
 
     // Check if customer already exists in database based on email
