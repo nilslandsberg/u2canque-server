@@ -50,9 +50,11 @@ const orderSchema = new Schema({
   },
   customer: {
     type: Schema.Types.ObjectId,
-    ref: "Client"
-  }
-
+    ref: "Customer"
+  },
+  items: [itemSchema]
 });
 
 const Order = mongoose.model("Order", orderSchema);
+
+module.exports = { Order }
