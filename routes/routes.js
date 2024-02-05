@@ -6,5 +6,10 @@ const orderController = require("../controllers/orderController");
 router
   .route('/order')
   .post(orderController.createNewOrder)
+  .get(orderController.getAllOrders)
+
+router
+  .route('/order/tomorrow')
+  .get(orderController.getOrdersForTomorrow)
 
 module.exports = router;

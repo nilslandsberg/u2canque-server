@@ -1,5 +1,6 @@
 const { Order } = require("../models/order");
-const { Customer } = require("../models/customer")
+const { Customer } = require("../models/customer");
+const moment = require("moment");
 
 exports.createNewOrder = async (req, res) => {
   try {
@@ -25,9 +26,32 @@ exports.createNewOrder = async (req, res) => {
 
     const populatedOrder = await Order.findOne({ _id: newOrder._id }).populate('customer');
 
-    res.status(201).json({ success: true, newOrder: populatedOrder });
+    return res.status(201).json({ success: true, newOrder: populatedOrder });
   } catch (err) {
     return res.status(500).json({ sucess: false, message: err.message });
   }
 }
 
+exports.getAllOrders = async (req, res) => {
+  try {
+    const orders = await Order.find().populate('customer');
+
+    return res.status(200).json({ success: true, orders: orders });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message});
+  }
+}
+
+exports.getOrdersForTomorrow = async (req, res) => {
+  try {
+    const tomorrow = moment().add(1, 'day').startOf('day').toDate();
+
+    const ordersForTomorrow = await Order.find({
+      date: { $gte: tomorrow, $lt: moment(tomorrow).endOf('day').toDate() }
+    }).populate('customer');
+
+    return res.status(200).json({ success: true, orders: ordersForTomorrow})
+  } catch (err) {
+    return res.status(500).json({ suceess: false, message: err.message })
+  }
+}
