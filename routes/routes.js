@@ -9,6 +9,10 @@ router
   .get(orderController.getAllOrders)
 
 router
+  .route('/order/:orderId')
+  .delete(orderController.cancelOrder)
+
+router
   .route('/order/tomorrow')
   .get(orderController.getOrdersForTomorrow)
 

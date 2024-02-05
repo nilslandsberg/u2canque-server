@@ -67,3 +67,15 @@ exports.getOrdersForTomorrow = async (req, res) => {
     return res.status(500).json({ suceess: false, message: err.message })
   }
 }
+
+exports.cancelOrder = async (req, res) => {
+  const { orderId } = req.params
+  console.log(orderId)
+  try {
+    // Find and delete the order based on the id provided in the parameters of the request
+    const cancelledOrder = await Order.findByIdAndDelete(orderId);
+    return res.status(200).json({ success: true, message: "Order cancelled" })
+  } catch (err) {
+    return res.status(500).json({ suceess: false, message: err.message })
+  }
+}
