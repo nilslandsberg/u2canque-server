@@ -4,7 +4,9 @@
   "description": "u2canque server for online orders",
   "main": "y",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "devStart": "nodemon index.js",
+    "build": "npm i"
   },
   "author": "Nils Landsberg",
   "license": "ISC",
