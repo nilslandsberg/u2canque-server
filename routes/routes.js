@@ -13,7 +13,7 @@ router
   .delete(orderController.cancelOrder)
 
 router
-  .route('/order/tomorrow')
-  .get(orderController.getOrdersForTomorrow)
+  .route('/order/nextBusinessDay')
+  .get(orderController.getOrdersForNextBusinessDay)
 
 module.exports = router;

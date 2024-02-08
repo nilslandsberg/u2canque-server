@@ -54,19 +54,39 @@ exports.getAllOrders = async (req, res) => {
   }
 }
 
-exports.getOrdersForTomorrow = async (req, res) => {
+
+exports.getOrdersForNextBusinessDay = async (req, res) => {
   try {
-    const tomorrow = moment().add(1, 'day').startOf('day').toDate();
+    let nextBusinessDay;
+
+    // Set the time zone to Eastern Time
+    momenttz.tz.setDefault('America/New_York');
+
+    // Get the current day of the week (0 for Sunday, 6 for Saturday)
+    const currentDayOfWeek = moment().day();
     
-    const ordersForTomorrow = await Order.find({
-      date: { $gte: tomorrow, $lt: moment(tomorrow).endOf('day').toDate() }
+    // Check if today is Friday, Saturday, or Sunday
+    if (currentDayOfWeek === 5 || currentDayOfWeek === 6 || currentDayOfWeek === 0) {
+      // Set next business day to Monday
+      nextBusinessDay = moment().add(4, 'days').startOf('day').toDate();
+    } else {
+      // Set next business day to the next day
+      nextBusinessDay = moment().add(1, 'day').startOf('day').toDate();
+    }
+    
+    // Query orders from the database where the date falls within the next business day
+    const ordersForNextBusinessDay = await Order.find({
+      date: { $gte: nextBusinessDay, $lt: moment(nextBusinessDay).endOf('day').toDate() }
     }).populate('customer').sort({ date: 1 });
 
-    return res.status(200).json({ success: true, orders: ordersForTomorrow})
+    return res.status(200).json({ success: true, orders: ordersForNextBusinessDay });
   } catch (err) {
-    return res.status(500).json({ suceess: false, message: err.message })
+    return res.status(500).json({ success: false, message: err.message });
   }
 }
+
+
+
 
 exports.cancelOrder = async (req, res) => {
   const { orderId } = req.params
