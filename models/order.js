@@ -21,6 +21,7 @@ const itemSchema = new Schema({
   sideOne: String,
   sideTwo: String,
   bread: String,
+  size: String,
   price: {
       type: Number,
       required: true
