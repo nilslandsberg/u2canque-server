@@ -54,6 +54,35 @@ exports.getAllOrders = async (req, res) => {
   }
 }
 
+exports.getOrdersForToday = async (req, res) => {
+  try{
+    let today;
+    //Set the time zone to Eastern Time
+    momenttz.tz.setDefault('America/New_York');
+
+    const currentDay = moment();
+    today = moment().startOf('day').toDate();
+    // Convert the today Date object to a string in 'YYYY-MM-DD' format
+    const todayString = moment(today).format('YYYY-MM-DD');
+    console.log(todayString)
+    // Query orders from the database where the date falls within the next business day
+    const ordersForToday = await Order.find({
+      $expr: {
+        $eq: [
+          {
+            $dateToString: { format: '%Y-%m-%d', date: '$date' }
+          },
+          todayString
+        ]
+      }
+    }).populate('customer').sort({ date: 1 });
+
+    return res.status(200).json({ success: true, orders: ordersForToday });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+}
+
 
 exports.getOrdersForNextBusinessDay = async (req, res) => {
   try {
