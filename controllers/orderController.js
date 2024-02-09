@@ -68,15 +68,25 @@ exports.getOrdersForNextBusinessDay = async (req, res) => {
     // Check if today is Friday, Saturday, or Sunday
     if (currentDayOfWeek === 5 || currentDayOfWeek === 6 || currentDayOfWeek === 0) {
       // Set next business day to Monday
-      nextBusinessDay = moment().add(4, 'days').startOf('day').toDate();
+      nextBusinessDay = moment().add(3, 'days').startOf('day').toDate();
     } else {
       // Set next business day to the next day
       nextBusinessDay = moment().add(1, 'day').startOf('day').toDate();
     }
-    
+
+    // Convert nextBusinessDay to a string with format YYYY-MM-DD
+    const nextBusinessDayString = moment(nextBusinessDay).format('YYYY-MM-DD');
+
     // Query orders from the database where the date falls within the next business day
     const ordersForNextBusinessDay = await Order.find({
-      date: { $gte: nextBusinessDay, $lt: moment(nextBusinessDay).endOf('day').toDate() }
+      $expr: {
+        $eq: [
+          {
+            $dateToString: { format: '%Y-%m-%d', date: '$date' }
+          },
+          nextBusinessDayString
+        ]
+      }
     }).populate('customer').sort({ date: 1 });
 
     return res.status(200).json({ success: true, orders: ordersForNextBusinessDay });
