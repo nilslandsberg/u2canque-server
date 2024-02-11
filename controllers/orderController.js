@@ -93,15 +93,23 @@ exports.getOrdersForNextBusinessDay = async (req, res) => {
 
     // Get the current day of the week (0 for Sunday, 6 for Saturday)
     const currentDayOfWeek = moment().day();
-    
-    // Check if today is Friday, Saturday, or Sunday
-    if (currentDayOfWeek === 5 || currentDayOfWeek === 6 || currentDayOfWeek === 0) {
-      // Set next business day to Monday
-      nextBusinessDay = moment().add(3, 'days').startOf('day').toDate();
-    } else {
-      // Set next business day to the next day
-      nextBusinessDay = moment().add(1, 'day').startOf('day').toDate();
+
+    // Based on currentDayOfWeek, set next business day.
+    switch (currentDayOfWeek) {
+      case 5:
+        // Friday, set next business day to Monday
+        nextBusinessDay = moment().add(3, 'days').startOf('day').toDate();
+        break;
+      case 6:
+        // Saturday, set next business day to Monday
+        nextBusinessDay = moment().add(2, 'days').startOf('day').toDate();
+        break;
+      default:
+        // Other days, set next business day to the next day
+        nextBusinessDay = moment().add(1, 'day').startOf('day').toDate();
+        break;
     }
+    
 
     // Convert nextBusinessDay to a string with format YYYY-MM-DD
     const nextBusinessDayString = moment(nextBusinessDay).format('YYYY-MM-DD');
