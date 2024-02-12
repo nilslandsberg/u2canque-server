@@ -53,7 +53,11 @@ const orderSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Customer"
   },
-  items: [itemSchema]
+  items: [itemSchema],
+  orderTotal: {
+    type: Number,
+    required: true
+  }
 });
 
 const Order = mongoose.model("Order", orderSchema);

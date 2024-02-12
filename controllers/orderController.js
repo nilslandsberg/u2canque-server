@@ -6,7 +6,7 @@ const momenttz = require("moment-timezone");
 exports.createNewOrder = async (req, res) => {
   console.log('New Order!')
   try {
-    const { date, pickUpTime, customer, items } = req.body;
+    const { date, pickUpTime, customer, items, orderTotal } = req.body;
    
     const { firstName, lastName, email, phone } = customer;
 
@@ -33,7 +33,8 @@ exports.createNewOrder = async (req, res) => {
       date: newDateTime,
       pickUpTime: pickUpTime,
       customer: existingCustomer._id,
-      items: items
+      items: items,
+      orderTotal: orderTotal
     });
 
     const populatedOrder = await Order.findOne({ _id: newOrder._id }).populate('customer');
