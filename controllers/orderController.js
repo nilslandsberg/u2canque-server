@@ -8,7 +8,7 @@ exports.createNewOrder = async (req, res) => {
   try {
     const { date, pickUpTime, customer, items, orderTotal } = req.body;
    
-    const { firstName, lastName, email, phone } = customer;
+    const { email } = customer;
 
     // Check if customer already exists in database based on email
     let existingCustomer = await Customer.findOne({ email: email });
@@ -133,7 +133,27 @@ exports.getOrdersForNextBusinessDay = async (req, res) => {
   }
 }
 
+exports.getOrdersForWeek = async (req, res) => {
+  try{
+   // Set the time zone to Eastern Time
+    momenttz.tz.setDefault('America/New_York');
 
+    // Get the current day of the week (0 for Sunday, 6 for Saturday)
+    const currentDay = moment().startOf('day');
+    const sevenDaysFromCurrentDay = moment().add(7, 'days').startOf('day');
+
+    const ordersForThisWeek = await Order.find({
+      date: {
+        $gte: currentDay.toDate(),
+        $lte: sevenDaysFromCurrentDay.toDate()
+      }
+    }).populate('customer').sort({ date: 1 });
+
+    return res.status(200).json({ success: true, ordersForThisWeek })
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message })
+  }
+}
 
 
 exports.cancelOrder = async (req, res) => {

@@ -11,13 +11,17 @@ router
 router
   .route('/order/today')
   .get(orderController.getOrdersForToday)
-    
-router
-  .route('/order/:orderId')
-  .delete(orderController.cancelOrder)
 
 router
   .route('/order/nextBusinessDay')
   .get(orderController.getOrdersForNextBusinessDay)
+
+router
+  .route('/order/nextWeek')
+  .get(orderController.getOrdersForWeek)
+
+router
+  .route('/order/:orderId')
+  .delete(orderController.cancelOrder)
 
 module.exports = router;
