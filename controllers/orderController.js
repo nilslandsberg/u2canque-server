@@ -149,7 +149,7 @@ exports.getOrdersForWeek = async (req, res) => {
       }
     }).populate('customer').sort({ date: 1 });
 
-    return res.status(200).json({ success: true, ordersForThisWeek })
+    return res.status(200).json({ success: true, orders: ordersForThisWeek })
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message })
   }
