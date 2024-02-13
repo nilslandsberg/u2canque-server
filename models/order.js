@@ -55,7 +55,7 @@ const orderSchema = new Schema({
   },
   items: [itemSchema],
   orderTotal: {
-    type: Number,
+    type: String,
     required: true
   }
 });
