@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const orderController = require("../controllers/orderController");
+const holidayOrderController = require("../controllers/holidayOrderController");
 
 // route for adding an order to database
 router
@@ -23,5 +24,9 @@ router
 router
   .route('/order/:orderId')
   .delete(orderController.cancelOrder)
+
+router
+  .route('/order/holiday')
+  .post(holidayOrderController.createNewHolidayOrder)
 
 module.exports = router;
