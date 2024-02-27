@@ -52,7 +52,7 @@ exports.getEasterOrders = async (req, res) => {
           }
         }
       },
-      { $sort: { customOrder: 1 } } // Sort based on the customOrder field
+      { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
     ]);
     
     console.log(sortedEasterOrders);
