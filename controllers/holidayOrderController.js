@@ -55,7 +55,8 @@ exports.getEasterOrders = async (req, res) => {
       { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
     ]);
     
-    console.log(sortedEasterOrders);
+    const customerPopulatedEasterOrders = await HolidayOrder.populate(sortedEasterOrders, { path: 'customer' });
+    
     return res.status(200).json({ success: true, easterOrders: sortedEasterOrders });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });
