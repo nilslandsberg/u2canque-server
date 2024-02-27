@@ -65,7 +65,7 @@ exports.getOrdersForToday = async (req, res) => {
     today = moment().startOf('day').toDate();
     // Convert the today Date object to a string in 'YYYY-MM-DD' format
     const todayString = moment(today).format('YYYY-MM-DD');
-    console.log(todayString)
+ 
     // Query orders from the database where the date falls within the next business day
     const ordersForToday = await Order.find({
       $expr: {

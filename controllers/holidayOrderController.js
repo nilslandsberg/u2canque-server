@@ -33,3 +33,31 @@ exports.createNewHolidayOrder = async (req, res) => {
     return res.status(500).json({ sucess: false, message: err.message });
   }
 }
+
+exports.getEasterOrders = async (req, res) => {
+  try {
+    const sortedEasterOrders = await HolidayOrder.aggregate([
+      { $match: { holiday: "Easter", year: new Date().getFullYear() } }, // Filter documents where holiday is "easter" and is in the current year
+      {
+        $addFields: {
+          customOrder: {
+            $switch: {
+              branches: [
+                { case: { $eq: ["$pickUpDate", "the day before Easter"] }, then: 1 },
+                { case: { $eq: ["$pickUpDate", "Easter"] }, then: 2 },
+                { case: { $eq: ["$pickUpDate", "the day after Easter"] }, then: 3 }
+              ],
+              default: 0 
+            }
+          }
+        }
+      },
+      { $sort: { customOrder: 1 } } // Sort based on the customOrder field
+    ]);
+    
+    console.log(sortedEasterOrders);
+    return res.status(200).json({ success: true, easterOrders: sortedEasterOrders });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+};

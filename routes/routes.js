@@ -29,4 +29,8 @@ router
   .route('/order/holiday')
   .post(holidayOrderController.createNewHolidayOrder)
 
+router
+  .route('/order/holiday/easter')
+  .get(holidayOrderController.getEasterOrders)
+
 module.exports = router;
