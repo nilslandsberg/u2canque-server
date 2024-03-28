@@ -33,4 +33,12 @@ router
   .route('/order/holiday/easter')
   .get(holidayOrderController.getEasterOrders)
 
+router
+  .route('/order/holiday/christmas')
+  .get(holidayOrderController.getChristmasOrders)
+
+router
+  .route('/order/holiday/:orderId')
+  .delete(holidayOrderController.cancelHolidayOrder)
+  
 module.exports = router;
