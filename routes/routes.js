@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const orderController = require("../controllers/orderController");
 const holidayOrderController = require("../controllers/holidayOrderController");
+const checkAuth = require("../middleware/checkAuth");
+const userController = require("../controllers/userController");
+const authController = require("../controllers/authController");
 
 // route for adding an order to database
 router
@@ -40,5 +43,12 @@ router
 router
   .route('/order/holiday/:orderId')
   .delete(holidayOrderController.cancelHolidayOrder)
+
+router.post('/signup', authController.signup);
+router.post('/login', authController.login);
+
+router
+  .route('/')
+  .get(checkAuth, userController.getAllUsers);
   
 module.exports = router;
