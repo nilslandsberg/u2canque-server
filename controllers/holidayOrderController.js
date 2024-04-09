@@ -92,6 +92,35 @@ exports.getChristmasOrders = async (req, res) => {
   }
 };
 
+exports.getMemorialDayOrders = async (req, res) => {
+  try {
+    const sortedMemorialDayOrders = await HolidayOrder.aggregate([
+      { $match: { holiday: "Memorial Day", year: new Date().getFullYear() } }, // Filter documents where holiday is "Memorial-Day" and is in the current year
+      {
+        $addFields: {
+          customOrder: {
+            $switch: {
+              branches: [
+                { case: { $eq: ["$pickUpDate", "the day before Memorial Day"] }, then: 1 },
+                { case: { $eq: ["$pickUpDate", "Memorial Day"] }, then: 2 },
+                { case: { $eq: ["$pickUpDate", "the day after Memorial Day"] }, then: 3 }
+              ],
+              default: 0 
+            }
+          }
+        }
+      },
+      { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
+    ]);
+    
+    const customerPopulatedMemorialDayOrders = await HolidayOrder.populate(sortedMemorialDayOrders, { path: 'customer' });
+
+    return res.status(200).json({ success: true, memorialDayOrders: customerPopulatedMemorialDayOrders });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+}
+
 exports.cancelHolidayOrder = async (req, res) => {
   const { orderId } = req.params
   console.log(orderId)

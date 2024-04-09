@@ -14,19 +14,19 @@ router
 
 router
   .route('/order/today')
-  .get(orderController.getOrdersForToday)
+  .get(checkAuth, orderController.getOrdersForToday)
 
 router
   .route('/order/nextBusinessDay')
-  .get(orderController.getOrdersForNextBusinessDay)
+  .get(checkAuth, orderController.getOrdersForNextBusinessDay)
 
 router
   .route('/order/nextWeek')
-  .get(orderController.getOrdersForWeek)
+  .get(checkAuth, orderController.getOrdersForWeek)
 
 router
   .route('/order/:orderId')
-  .delete(orderController.cancelOrder)
+  .delete(checkAuth, orderController.cancelOrder)
 
 router
   .route('/order/holiday')
@@ -34,15 +34,19 @@ router
 
 router
   .route('/order/holiday/easter')
-  .get(holidayOrderController.getEasterOrders)
+  .get(checkAuth, holidayOrderController.getEasterOrders)
 
 router
   .route('/order/holiday/christmas')
-  .get(holidayOrderController.getChristmasOrders)
+  .get(checkAuth, holidayOrderController.getChristmasOrders)
+
+router
+  .route('/order/holiday/memorial-day')
+  .get(checkAuth, holidayOrderController.getMemorialDayOrders);
 
 router
   .route('/order/holiday/:orderId')
-  .delete(holidayOrderController.cancelHolidayOrder)
+  .delete(checkAuth, holidayOrderController.cancelHolidayOrder)
 
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
