@@ -18,9 +18,7 @@ const appetizerSchema = new mongoose.Schema({
     required: true 
   },
   options: {
-    // use - type: Schema.Types.Mixed?
     sauce: [{ type: String }],
-    // Add other options as needed
   },
   appetizer: { 
     type: Boolean, 

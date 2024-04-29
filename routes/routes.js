@@ -5,6 +5,83 @@ const holidayOrderController = require("../controllers/holidayOrderController");
 const checkAuth = require("../middleware/checkAuth");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
+const menuController = require("../controllers/menuController");
+
+// APPETIZERS
+router
+  .route("/appetizers")
+  .get(menuController.getAppetizers)
+  .post(menuController.createNewAppetizer);
+
+router
+  .route("/appetizers/:id")
+  .get(menuController.getAnAppetizer) 
+  .put(menuController.editAppetizer)
+  .delete(menuController.deleteAppetizer);
+
+// LUNCH ITEMS
+router
+  .route("/lunch")
+  .get(menuController.getLunches)
+  .post(menuController.createNewLunch);
+
+router
+  .route("/lunch/monday")
+  .get(menuController.getMondayLunch)
+  router
+  .route("/lunch/tuesday")
+  .get(menuController.getTuesdayLunch)
+  router
+  .route("/lunch/wednesday")
+  .get(menuController.getWednesdayLunch)
+  router
+  .route("/lunch/thursday")
+  .get(menuController.getThursdayLunch)
+  router
+  .route("/lunch/friday")
+  .get(menuController.getFridayLunch)
+
+router
+  .route("/lunch/:id")
+  .get(menuController.getALunch) 
+  .put(menuController.editLunch)
+  .delete(menuController.deleteLunch);
+
+// SIDE ITEMS
+router
+  .route("/sides")
+  .get(menuController.getSides)
+  .post(menuController.createNewSide);
+
+router
+  .route("/sides/:id")
+  .get(menuController.getASide) 
+  .put(menuController.editSide)
+  .delete(menuController.deleteSide);
+
+// BULK ITEMS
+router
+  .route("/bulk-bbq")
+  .get(menuController.getBulkBbqItems)
+  .post(menuController.createNewBulkBbqItem);
+
+router
+  .route("/bulk-bbq/:id")
+  .get(menuController.getABulkBbqItem) 
+  .put(menuController.editBulkBbqItem)
+  .delete(menuController.deleteBulkBbqItem);
+
+// HOLIDAY ITEMS
+router
+  .route("/holiday-items")
+  .get(menuController.getHolidayItems)
+  .post(menuController.createNewHolidayItem);
+
+router
+  .route("/holiday-items/:id")
+  .get(menuController.getAHolidayItem)
+  .put(menuController.editHolidayItem)
+  .delete(menuController.deleteHolidayItem);
 
 // route for adding an order to database
 router

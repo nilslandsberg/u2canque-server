@@ -13,8 +13,6 @@ const holidaySchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
-
-  // refer to what we did for sides & bulk here
   price: {
     default: { type: String },
     fourPounds: { type: Number },
@@ -25,9 +23,7 @@ const holidaySchema = new mongoose.Schema({
     ninePounds: { type: Number },
     tenPounds: { type: Number },
   },
-  size: [{ 
-    type: String 
-  }],
+  size: [{ type: String }],
   holiday: { 
     type: Boolean, 
     default: true 
@@ -38,5 +34,5 @@ const holidaySchema = new mongoose.Schema({
   },
 });
 
-const Holiday = mongoose.model('Holiday', holidaySchema);
-module.exports = Holiday;
+const HolidayItem = mongoose.model('HolidayItem', holidaySchema);
+module.exports = HolidayItem;
