@@ -14,11 +14,11 @@ const appetizerSchema = new mongoose.Schema({
     required: true 
   },
   price: { 
-    type: Number, 
+    type: String, 
     required: true 
   },
   options: {
-    sauce: [{ type: String }],
+    // sauce: [{ type: String }],
   },
   appetizer: { 
     type: Boolean, 

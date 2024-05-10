@@ -14,10 +14,10 @@ const sideSchema = new mongoose.Schema({
     required: true 
   },
   price: {
-    pint: { type: Number },
-    quart: { type: Number },
-    halfPan: { type: Number },
-    fullPan: { type: Number },
+    pint: { type: String },
+    quart: { type: String },
+    halfPan: { type: String },
+    fullPan: { type: String },
   },
   size: [{ type: String }],
   side: { 
