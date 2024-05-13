@@ -83,6 +83,11 @@ router
   .put(menuController.editHolidayItem)
   .delete(menuController.deleteHolidayItem);
 
+// MENU MODIFIERS (all stored in one Mongo entry)
+router
+  .route("/modifiers")
+  .get(menuController.getModifiers)
+
 // route for adding an order to database
 router
   .route('/order')

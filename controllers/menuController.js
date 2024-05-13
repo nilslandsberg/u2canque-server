@@ -3,6 +3,7 @@ const Lunch = require("../models/lunchItem");
 const Side = require("../models/sideItem");
 const Bulk = require("../models/bulkBbqItem");
 const HolidayItem = require("../models/holidayItem");
+const Modifiers = require("../models/modifiers")
 
 
 // - APPETIZERS -
@@ -345,6 +346,17 @@ exports.deleteHolidayItem = async (req, res) => {
   try {
     const deletedHolidayItem = await HolidayItem.findByIdAndDelete(req.params.id);
     res.status(200).json(deletedHolidayItem);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+// - MODIFIERS -
+// GET all modifiers (all stored in one entry)
+exports.getModifiers = async (req, res) => {
+  try {
+    const modifiers = await Modifiers.find();
+    res.status(200).json(modifiers);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
