@@ -1,0 +1,345 @@
+[
+  {
+    "holiday": true,
+    "name": "Double Smoked Spiral Sliced Ham",
+    "type": "Christmas",
+    "price": 50.0,
+    "description": "Indulge in the rich and savory flavors of our double smoked ham, the perfect centerpiece for your holiday feast. Crafted with care, our double smoked ham undergoes a meticulous smoking process that infuses it with layers of robust smokiness, complemented by delicate notes of sweetness.",
+    "image": "/images/Double_Smoked_Ham.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Turkey",
+    "price": 75.0,
+    "description": "Celebrate the season with the savory aroma and delectable taste of our smoked turkey, a quintessential holiday favorite that brings warmth and cheer to every gathering. Carefully prepared and smoked to perfection, our turkey embodies the essence of festive feasting and culinary delight.",
+    "type": "Christmas",
+    "image": "/images/Smoked_Turkey.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Prime Rib",
+    "bulk": true,
+    "type": "Christmas",
+    "image": "/images/Smoked-Prime-Rib-9.jpeg",
+    "price": {
+      "default": "25.00/pound (4 pound minimum)",
+      "fourPounds": 100,
+      "fivePounds": 125,
+      "sixPounds": 150,
+      "sevenPounds": 175,
+      "eightPounds": 200,
+      "ninePounds": 225,
+      "tenPounds": 250
+    },
+    "description": "Indulge in the epitome of holiday luxury with our smoked prime rib, a culinary masterpiece that transforms any gathering into a sumptuous celebration. Perfectly marbled and richly flavorful, our prime rib is expertly seasoned and slow-smoked to perfection, resulting in a succulent and tender roast that captivates the senses.",
+    "size": [
+      "4lbs : $100",
+      "5lbs : $125",
+      "6lbs : $150",
+      "7lbs : $175",
+      "8lbs : $200",
+      "9lbs : $225",
+      "10lbs : $250"
+    ]
+  },
+  {
+    "holiday": true,
+    "name": "Double Smoked Spiral Sliced Ham",
+    "type": "Thanksgiving",
+    "price": 50.0,
+    "description": "Indulge in the rich and savory flavors of our double smoked ham, the perfect centerpiece for your holiday feast. Crafted with care, our double smoked ham undergoes a meticulous smoking process that infuses it with layers of robust smokiness, complemented by delicate notes of sweetness.",
+    "image": "/images/Double_Smoked_Ham.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Turkey",
+    "price": 75.0,
+    "description": "Celebrate the season with the savory aroma and delectable taste of our smoked turkey, a quintessential holiday favorite that brings warmth and cheer to every gathering. Carefully prepared and smoked to perfection, our turkey embodies the essence of festive feasting and culinary delight.",
+    "type": "Thanksgiving",
+    "image": "/images/Smoked_Turkey.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Double Smoked Spiral Sliced Ham",
+    "type": "Easter",
+    "price": 50.0,
+    "description": "Indulge in the rich and savory flavors of our double smoked ham, the perfect centerpiece for your holiday feast. Crafted with care, our double smoked ham undergoes a meticulous smoking process that infuses it with layers of robust smokiness, complemented by delicate notes of sweetness.",
+    "image": "/images/Double_Smoked_Ham.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Turkey",
+    "price": 75.0,
+    "description": "Celebrate the season with the savory aroma and delectable taste of our smoked turkey, a quintessential holiday favorite that brings warmth and cheer to every gathering. Carefully prepared and smoked to perfection, our turkey embodies the essence of festive feasting and culinary delight.",
+    "type": "Easter",
+    "image": "/images/Smoked_Turkey.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Prime Rib",
+    "bulk": true,
+    "type": "Easter",
+    "image": "/images/Smoked-Prime-Rib-9.jpeg",
+    "price": {
+      "default": "25.00/pound (4 pound minimum)",
+      "fourPounds": 100,
+      "fivePounds": 125,
+      "sixPounds": 150,
+      "sevenPounds": 175,
+      "eightPounds": 200,
+      "ninePounds": 225,
+      "tenPounds": 250
+    },
+    "description": "Indulge in the epitome of holiday luxury with our smoked prime rib, a culinary masterpiece that transforms any gathering into a sumptuous celebration. Perfectly marbled and richly flavorful, our prime rib is expertly seasoned and slow-smoked to perfection, resulting in a succulent and tender roast that captivates the senses.",
+    "size": [
+      "4lbs : $100",
+      "5lbs : $125",
+      "6lbs : $150",
+      "7lbs : $175",
+      "8lbs : $200",
+      "9lbs : $225",
+      "10lbs : $250"
+    ]
+  },
+  {
+    "holiday": true,
+    "name": "Double Smoked Spiral Sliced Ham",
+    "type": "Memorial Day",
+    "price": 50.0,
+    "description": "Indulge in the rich and savory flavors of our double smoked ham, the perfect centerpiece for your holiday feast. Crafted with care, our double smoked ham undergoes a meticulous smoking process that infuses it with layers of robust smokiness, complemented by delicate notes of sweetness.",
+    "image": "/images/Double_Smoked_Ham.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Turkey",
+    "price": 75.0,
+    "description": "Celebrate the season with the savory aroma and delectable taste of our smoked turkey, a quintessential holiday favorite that brings warmth and cheer to every gathering. Carefully prepared and smoked to perfection, our turkey embodies the essence of festive feasting and culinary delight.",
+    "type": "Memorial Day",
+    "image": "/images/Smoked_Turkey.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Prime Rib",
+    "bulk": true,
+    "type": "Memorial Day",
+    "image": "/images/Smoked-Prime-Rib-9.jpeg",
+    "price": {
+      "default": "25.00/pound (4 pound minimum)",
+      "fourPounds": 100,
+      "fivePounds": 125,
+      "sixPounds": 150,
+      "sevenPounds": 175,
+      "eightPounds": 200,
+      "ninePounds": 225,
+      "tenPounds": 250
+    },
+    "description": "Indulge in the epitome of holiday luxury with our smoked prime rib, a culinary masterpiece that transforms any gathering into a sumptuous celebration. Perfectly marbled and richly flavorful, our prime rib is expertly seasoned and slow-smoked to perfection, resulting in a succulent and tender roast that captivates the senses.",
+    "size": [
+      "4lbs : $100",
+      "5lbs : $125",
+      "6lbs : $150",
+      "7lbs : $175",
+      "8lbs : $200",
+      "9lbs : $225",
+      "10lbs : $250"
+    ]
+  },
+  {
+    "holiday": true,
+    "name": "5 Pounds of Pulled Pork & 5 Racks of Ribs",
+    "type": "Independence Day",
+    "price": "100.00",
+    "description": "Independence Day Special: Dive into 5lbs of tender pulled pork and 5 racks of savory ribs. Perfect for celebrating with friends and family. Order now!",
+    "image": "/images/Ribs&Pork.jpg"
+  },
+  {
+    "holiday": true,
+    "name": "5 pounds of Pulled Chicken & 5 Racks of Ribs",
+    "price": "75.00",
+    "description": "Independence Day Special: Dive into 5lbs of tender pulled chicken and 5 racks of savory ribs. Perfect for celebrating with friends and family. Order now!",
+    "type": "Independence Day",
+    "image": "/images/Chicken&Ribs.jpg"
+  },
+  {
+    "holiday": true,
+    "name": "Whole Packer Brisket",
+    "price": "175.00",
+    "description": "Savor the robust flavors of our smoked whole packer brisket, expertly prepared to tender perfection. Slow-smoked for hours, this centerpiece of barbecue excellence boasts a mouthwatering bark and juicy, melt-in-your-mouth slices.",
+    "type": "Memorial Day",
+    "image": "/images/Brisket.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Prime Rib",
+    "bulk": true,
+    "type": "Independence Day",
+    "image": "/images/Smoked-Prime-Rib-9.jpeg",
+    "price": {
+      "default": "25.00/pound (4 pound minimum)",
+      "fourPounds": "100",
+      "fivePounds": "125",
+      "sixPounds": "150",
+      "sevenPounds": "175",
+      "eightPounds": "200",
+      "ninePounds": "225",
+      "tenPounds": "250"
+    },
+    "description": "Indulge in the epitome of holiday luxury with our smoked prime rib, a culinary masterpiece that transforms any gathering into a sumptuous celebration. Perfectly marbled and richly flavorful, our prime rib is expertly seasoned and slow-smoked to perfection, resulting in a succulent and tender roast that captivates the senses.",
+    "size": [
+      "4lbs : $100",
+      "5lbs : $125",
+      "6lbs : $150",
+      "7lbs : $175",
+      "8lbs : $200",
+      "9lbs : $225",
+      "10lbs : $250"
+    ]
+  },
+  {
+    "holiday": true,
+    "type": "Independence Day",
+    "side": true,
+    "name": "Smoked Mac-n-Cheese",
+    "image": "/images/MacNCheese.jpeg",
+    "description": "Indulge in our irresistible smoked mac and cheese, where creamy macaroni meets a tantalizing smoky flavor. With a perfect balance of rich, gooey cheese and a subtle, lingering smokiness, it's a comforting classic elevated to new heights.",
+    "price": {
+      "halfPan": "45",
+      "fullPan": "75"
+    },
+    "size": [
+      "Half-Pan (Serves 12-14): $45.00",
+      "Full-Pan (Serves 24-28): $75.00"
+    ]
+  },
+  {
+    "holiday": true,
+    "type": "Independence Day",
+    "side": true,
+    "name": "Smoked Cowboy Beans",
+    "image": "/images/CowboyBeans.jpeg",
+    "description": "Savor the smoky essence of our slow-smoked cowboy beans, pork belly, brown sugar, and spices, then into the smoker for 3 hours, contributing to this mouthwatering experience. Perfect as a side or standalone comfort food.",
+    "price": {
+      "halfPan": "35",
+      "fullPan": "60"
+    },
+    "size": [
+      "Half-Pan (Serves 12-14): $35.00",
+      "Full-Pan (Serves 24-28): $60.00"
+    ]
+  },
+  {
+    "holiday": true,
+    "type": "Independence Day",
+    "side": true,
+    "name": "Street Corn",
+    "image": "/images/StreetCorn.jpeg",
+    "description": "Smoked Buttered Corn with Tricolor Peppers: Enjoy the smoky goodness of fresh corn, sautéed tricolor peppers, with a mixture of lime and chilis, finished with creamy butter in this vibrant and flavorful dish. Perfect as a side or vegetarian option.",
+    "price": {
+      "halfPan": "25",
+      "fullPan": "40"
+    },
+    "size": [
+      "Half-Pan (Serves 12-14): $25.00",
+      "Full-Pan (Serves 24-28): $40.00"
+    ]
+  },
+  {
+    "holiday": true,
+    "name": "5 Pounds of Pulled Pork & 5 Racks of Ribs",
+    "type": "Memorial Day",
+    "price": "100.00",
+    "description": "Memorial Day Special: Dive into 5lbs of tender pulled pork and 5 racks of savory ribs. Perfect for celebrating with friends and family. Order now!",
+    "image": "/images/Ribs&Pork.jpg"
+  },
+  {
+    "holiday": true,
+    "name": "5 pounds of Pulled Chicken & 5 Racks of Ribs",
+    "price": "75.00",
+    "description": "Memorial Day Special: Dive into 5lbs of tender pulled chicken and 5 racks of savory ribs. Perfect for celebrating with friends and family. Order now!",
+    "type": "Memorial Day",
+    "image": "/images/Chicken&Ribs.jpg"
+  },
+  {
+    "holiday": true,
+    "name": "Whole Packer Brisket",
+    "price": "175.00",
+    "description": "Savor the robust flavors of our smoked whole packer brisket, expertly prepared to tender perfection. Slow-smoked for hours, this centerpiece of barbecue excellence boasts a mouthwatering bark and juicy, melt-in-your-mouth slices.",
+    "type": "Memorial Day",
+    "image": "/images/Brisket.jpeg"
+  },
+  {
+    "holiday": true,
+    "name": "Smoked Prime Rib",
+    "bulk": true,
+    "type": "Memorial Day",
+    "image": "/images/Smoked-Prime-Rib-9.jpeg",
+    "price": {
+      "default": "25.00/pound (4 pound minimum)",
+      "fourPounds": "100",
+      "fivePounds": "125",
+      "sixPounds": "150",
+      "sevenPounds": "175",
+      "eightPounds": "200",
+      "ninePounds": "225",
+      "tenPounds": "250"
+    },
+    "description": "Indulge in the epitome of holiday luxury with our smoked prime rib, a culinary masterpiece that transforms any gathering into a sumptuous celebration. Perfectly marbled and richly flavorful, our prime rib is expertly seasoned and slow-smoked to perfection, resulting in a succulent and tender roast that captivates the senses.",
+    "size": [
+      "4lbs : $100",
+      "5lbs : $125",
+      "6lbs : $150",
+      "7lbs : $175",
+      "8lbs : $200",
+      "9lbs : $225",
+      "10lbs : $250"
+    ]
+  },
+  {
+    "holiday": true,
+    "type": "Memorial Day",
+    "side": true,
+    "name": "Smoked Mac-n-Cheese",
+    "image": "/images/MacNCheese.jpeg",
+    "description": "Indulge in our irresistible smoked mac and cheese, where creamy macaroni meets a tantalizing smoky flavor. With a perfect balance of rich, gooey cheese and a subtle, lingering smokiness, it's a comforting classic elevated to new heights.",
+    "price": {
+      "halfPan": "45",
+      "fullPan": "75"
+    },
+    "size": [
+      "Half-Pan (Serves 12-14): $45.00",
+      "Full-Pan (Serves 24-28): $75.00"
+    ]
+  },
+  {
+    "holiday": true,
+    "type": "Memorial Day",
+    "side": true,
+    "name": "Smoked Cowboy Beans",
+    "image": "/images/CowboyBeans.jpeg",
+    "description": "Savor the smoky essence of our slow-smoked cowboy beans, pork belly, brown sugar, and spices, then into the smoker for 3 hours, contributing to this mouthwatering experience. Perfect as a side or standalone comfort food.",
+    "price": {
+      "halfPan": "35",
+      "fullPan": "60"
+    },
+    "size": [
+      "Half-Pan (Serves 12-14): $35.00",
+      "Full-Pan (Serves 24-28): $60.00"
+    ]
+  },
+  {
+    "holiday": true,
+    "type": "Memorial Day",
+    "side": true,
+    "name": "Street Corn",
+    "image": "/images/StreetCorn.jpeg",
+    "description": "Smoked Buttered Corn with Tricolor Peppers: Enjoy the smoky goodness of fresh corn, sautéed tricolor peppers, with a mixture of lime and chilis, finished with creamy butter in this vibrant and flavorful dish. Perfect as a side or vegetarian option.",
+    "price": {
+      "halfPan": "25",
+      "fullPan": "40"
+    },
+    "size": [
+      "Half-Pan (Serves 12-14): $25.00",
+      "Full-Pan (Serves 24-28): $40.00"
+    ]
+  }
+]

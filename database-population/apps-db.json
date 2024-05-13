@@ -1,0 +1,51 @@
+[
+  {
+    "appetizer": true,
+    "id": "EBS5QN0E17S6A",
+    "name": "Pork Belly Burnt Ends and Rice",
+    "image": "/images/PorkBellyBurntEnds.jpeg",
+    "description": "Our succulent, melt-in-your-mouth pork belly is expertly seasoned and perfectly smoked, resulting in a deliciously smoky and tender sensation with every bite. It is served on a bed of fluffy white rice with your choice of sauce.",
+    "price": "8.50",
+    "options": {
+      "sauce": ["Mild", "Medium", "Ghost Pepper Glazed"]
+    }
+  },
+  {
+    "appetizer": true,
+    "id": "YST7QH1466SHM",
+    "name": "Beef Burnt Ends and Rice",
+    "image": "/images/BeefBurntEnds.jpeg",
+    "description": "Indulge in the mouthwatering delight of our Brisket Burnt Ends – a barbecue masterpiece that showcases the caramelized, flavorful edges of slow-cooked brisket cubes.  Served generously over a bed of fluffy white rice, our Brisket Burnt Ends dish offers a delightful symphony of textures and tastes, making it a savory and satisfying addition to your barbecue experience.",
+    "price": "8.50"
+  },
+  {
+    "appetizer": true,
+    "id": "HP32836NJ7RDJ",
+    "name": "Ahi Tuna and Rice",
+    "image": "/images/AhiTuna.jpeg",
+    "description": "Seared Ahi Tuna, lightly seasoned with Plowboys Fin and Feather rub, topped with a Japanese-style BBQ sauce on a bed of white rice.",
+    "price": "12.00"
+  },
+  {
+    "appetizer": true,
+    "id": "9N24KDRSTQJXW",
+    "name": "10 Smoked Jumbo Chicken Wings",
+    "image": "/images/ChickenWings.jpeg",
+    "description": "Our signature Smoked Chicken Wings are tender, succulent, and perfectly smoked, resulting in a harmonious balance of smoky goodness and juicy tenderness. Our savory brine, combined with the smoking process, infuses the jumbo wings with rich, smoky essence, creating a mouthwatering experience with every bite. Wings can be finished with your choice of dry rub or sauce.",
+    "price": "12.50",
+    "options": {
+      "sauce": [
+        "Sweet BBQ",
+        "Spicy Apple Habanero",
+        "Asian BBQ",
+        "Hot Squeezed"
+      ],
+      "dressing": [
+        "Ranch +$0.50",
+        "Blue Cheese +$0.50",
+        "Extra Sauce (2oz container) +$0.75",
+        "No Dressing"
+      ]
+    }
+  }
+]
