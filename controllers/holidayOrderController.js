@@ -121,6 +121,35 @@ exports.getMemorialDayOrders = async (req, res) => {
   }
 }
 
+exports.getIndependenceDayOrders = async (req, res) => {
+  try {
+    const sortedMemorialDayOrders = await HolidayOrder.aggregate([
+      { $match: { holiday: "Independence Day", year: new Date().getFullYear() } }, // Filter documents where holiday is "Independence-Day" and is in the current year
+      {
+        $addFields: {
+          customOrder: {
+            $switch: {
+              branches: [
+                { case: { $eq: ["$pickUpDate", "the day before Independence Day"] }, then: 1 },
+                { case: { $eq: ["$pickUpDate", "Independence Day"] }, then: 2 },
+                { case: { $eq: ["$pickUpDate", "the day after Independence Day"] }, then: 3 }
+              ],
+              default: 0 
+            }
+          }
+        }
+      },
+      { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
+    ]);
+    
+    const customerPopulatedIndependenceDayOrders = await HolidayOrder.populate(sortedIndependenceDayOrders, { path: 'customer' });
+
+    return res.status(200).json({ success: true, independenceDayOrders: customerPopulatedIndependenceDayOrders });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+}
+
 exports.cancelHolidayOrder = async (req, res) => {
   const { orderId } = req.params
   console.log(orderId)
