@@ -127,6 +127,10 @@ router
   .get(checkAuth, holidayOrderController.getMemorialDayOrders);
 
 router
+  .route('/order/holiday/independence-day')
+  .get(checkAuth, holidayOrderController.getIndependenceDayOrders);
+
+router
   .route('/order/holiday/:orderId')
   .delete(checkAuth, holidayOrderController.cancelHolidayOrder)
 
