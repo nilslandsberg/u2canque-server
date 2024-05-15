@@ -151,17 +151,16 @@ exports.getMemorialDayOrders = async (req, res) => {
 }
 
 exports.getIndependenceDayOrders = async (req, res) => {
-  console.log("hello")
   try {
-    const sortedMemorialDayOrders = await HolidayOrder.aggregate([
-      { $match: { holiday: "Independence Day", year: new Date().getFullYear() } }, // Filter documents where holiday is "Independence-Day" and is in the current year
+    const sortedIndependenceDayOrders = await HolidayOrder.aggregate([
+      { $match: { holiday: "Independence  Day", year: new Date().getFullYear() } }, // Filter documents where holiday is "Independence -Day" and is in the current year
       {
         $addFields: {
           customOrder: {
             $switch: {
               branches: [
-                { case: { $eq: ["$pickUpDate", "the day before Independence Day"] }, then: 1 },
-                { case: { $eq: ["$pickUpDate", "Independence Day"] }, then: 2 },
+                { case: { $eq: ["$pickUpDate", "the day before Independence  Day"] }, then: 1 },
+                { case: { $eq: ["$pickUpDate", "Independence  Day"] }, then: 2 },
                 { case: { $eq: ["$pickUpDate", "the day after Independence Day"] }, then: 3 }
               ],
               default: 0 
