@@ -63,6 +63,35 @@ exports.getEasterOrders = async (req, res) => {
   }
 };
 
+exports.getThanksgivingOrders = async (req, res) => {
+  try {
+    const sortedThanksgivingOrders = await HolidayOrder.aggregate([
+      { $match: { holiday: "thanksgiving", year: new Date().getFullYear() } }, // Filter documents where holiday is "Thanksgiving" and is in the current year
+      {
+        $addFields: {
+          customOrder: {
+            $switch: {
+              branches: [
+                { case: { $eq: ["$pickUpDate", "the day before Thanksgiving"] }, then: 1 },
+                { case: { $eq: ["$pickUpDate", "Thanksgiving"] }, then: 2 },
+                { case: { $eq: ["$pickUpDate", "the day after Thanksgiving"] }, then: 3 }
+              ],
+              default: 0 
+            }
+          }
+        }
+      },
+      { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
+    ]);
+    
+    const customerPopulatedThanksgivingOrders = await HolidayOrder.populate(sortedThanksgivingOrders, { path: 'customer' });
+
+    return res.status(200).json({ success: true, thanksgivingOrders: customerPopulatedThanksgivingOrders });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+};
+
 exports.getChristmasOrders = async (req, res) => {
   try {
     const sortedChristmasOrders = await HolidayOrder.aggregate([

@@ -123,22 +123,26 @@ router
   .get(checkAuth, holidayOrderController.getChristmasOrders)
 
 router
+  .route('/order/holiday/thanksgiving')
+  .get(checkAuth, holidayOrderController.getThanksgivingOrders)
+
+router
   .route('/order/holiday/memorial-day')
-  .get(checkAuth, holidayOrderController.getMemorialDayOrders);
+  .get(checkAuth, holidayOrderController.getMemorialDayOrders)
 
 router
   .route('/order/holiday/independence-day')
-  .get(checkAuth, holidayOrderController.getIndependenceDayOrders);
+  .get(checkAuth, holidayOrderController.getIndependenceDayOrders)
 
 router
   .route('/order/holiday/:orderId')
   .delete(checkAuth, holidayOrderController.cancelHolidayOrder)
 
-router.post('/signup', authController.signup);
-router.post('/login', authController.login);
+router.post('/signup', authController.signup)
+router.post('/login', authController.login)
 
 router
   .route('/')
-  .get(checkAuth, userController.getAllUsers);
+  .get(checkAuth, userController.getAllUsers)
   
 module.exports = router;
