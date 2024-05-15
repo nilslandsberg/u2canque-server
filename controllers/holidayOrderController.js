@@ -151,6 +151,7 @@ exports.getMemorialDayOrders = async (req, res) => {
 }
 
 exports.getIndependenceDayOrders = async (req, res) => {
+  console.log("hello")
   try {
     const sortedMemorialDayOrders = await HolidayOrder.aggregate([
       { $match: { holiday: "Independence Day", year: new Date().getFullYear() } }, // Filter documents where holiday is "Independence-Day" and is in the current year

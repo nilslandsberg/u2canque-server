@@ -33,7 +33,7 @@ const holidaySchema = new mongoose.Schema({
   },
   type: { 
     type: String, 
-    enum: ['Christmas', 'Thanksgiving', 'Easter', 'Memorial Day']
+    enum: ['Christmas', 'Thanksgiving', 'Easter', 'Memorial Day', 'Independence Day']
   },
 });
 
