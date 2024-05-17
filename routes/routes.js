@@ -11,19 +11,19 @@ const menuController = require("../controllers/menuController");
 router
   .route("/appetizers")
   .get(menuController.getAppetizers)
-  .post(menuController.createNewAppetizer);
+  .post(checkAuth, menuController.createNewAppetizer);
 
 router
   .route("/appetizers/:id")
   .get(menuController.getAnAppetizer) 
-  .put(menuController.editAppetizer)
-  .delete(menuController.deleteAppetizer);
+  .put(checkAuth, menuController.editAppetizer)
+  .delete(checkAuth, menuController.deleteAppetizer);
 
 // LUNCH ITEMS
 router
   .route("/lunch")
   .get(menuController.getLunches)
-  .post(menuController.createNewLunch);
+  .post(checkAuth, menuController.createNewLunch);
 
 router
   .route("/lunch/monday")
@@ -44,44 +44,44 @@ router
 router
   .route("/lunch/:id")
   .get(menuController.getALunch) 
-  .put(menuController.editLunch)
-  .delete(menuController.deleteLunch);
+  .put(checkAuth, menuController.editLunch)
+  .delete(checkAuth, menuController.deleteLunch);
 
 // SIDE ITEMS
 router
   .route("/sides")
   .get(menuController.getSides)
-  .post(menuController.createNewSide);
+  .post(checkAuth, menuController.createNewSide);
 
 router
   .route("/sides/:id")
   .get(menuController.getASide) 
-  .put(menuController.editSide)
-  .delete(menuController.deleteSide);
+  .put(checkAuth, menuController.editSide)
+  .delete(checkAuth, menuController.deleteSide);
 
 // BULK ITEMS
 router
   .route("/bulk-bbq")
   .get(menuController.getBulkBbqItems)
-  .post(menuController.createNewBulkBbqItem);
+  .post(checkAuth, menuController.createNewBulkBbqItem);
 
 router
   .route("/bulk-bbq/:id")
   .get(menuController.getABulkBbqItem) 
-  .put(menuController.editBulkBbqItem)
-  .delete(menuController.deleteBulkBbqItem);
+  .put(checkAuth, menuController.editBulkBbqItem)
+  .delete(checkAuth, menuController.deleteBulkBbqItem);
 
 // HOLIDAY ITEMS
 router
   .route("/holiday-items")
   .get(menuController.getHolidayItems)
-  .post(menuController.createNewHolidayItem);
+  .post(checkAuth, menuController.createNewHolidayItem);
 
 router
   .route("/holiday-items/:id")
   .get(menuController.getAHolidayItem)
-  .put(menuController.editHolidayItem)
-  .delete(menuController.deleteHolidayItem);
+  .put(checkAuth, menuController.editHolidayItem)
+  .delete(checkAuth, menuController.deleteHolidayItem);
 
 // MENU MODIFIERS (all stored in one Mongo entry)
 router
