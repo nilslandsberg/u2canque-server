@@ -361,3 +361,22 @@ exports.getModifiers = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
+// EDIT modifiers
+exports.editModifiers = async (req, res) => {
+  try {
+    const updatedModifiers = await Modifiers.findOneAndUpdate(
+      {}, // Find the first document
+      req.body, // Update with the request body
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedModifiers) {
+      return res.status(404).json({ error: 'No modifiers document found' });
+    }
+
+    res.status(200).json(updatedModifiers);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
