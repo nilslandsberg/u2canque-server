@@ -18,7 +18,8 @@ const appetizerSchema = new mongoose.Schema({
     required: true 
   },
   options: {
-    // sauce: [{ type: String }],
+    type: Object,
+    default: {},
   },
   appetizer: { 
     type: Boolean, 

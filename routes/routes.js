@@ -89,6 +89,7 @@ router
 router
   .route("/modifiers")
   .get(menuController.getModifiers)
+  .put(menuController.editModifiers);
 
 // route for adding an order to database
 router
