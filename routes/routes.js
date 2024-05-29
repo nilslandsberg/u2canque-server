@@ -59,6 +59,8 @@ router
   .put(menuController.editSide)
   .delete(menuController.deleteSide);
 
+  router.get(menuController.getTestBulk)
+
 // BULK ITEMS
 router
   .route("/bulk-bbq")
