@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const bulkBbqSchema = new mongoose.Schema({
+const testBulkSchema = new mongoose.Schema({
   name: { 
     type: String, 
     required: true 
@@ -27,5 +27,5 @@ const bulkBbqSchema = new mongoose.Schema({
   },
 });
 
-const BulkBbq = mongoose.model('BulkBbq', bulkBbqSchema);
-module.exports = BulkBbq;
+const TestBulk = mongoose.model('TestBulk', testBulkSchema);
+module.exports = TestBulk;
