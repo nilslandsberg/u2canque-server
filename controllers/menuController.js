@@ -5,6 +5,8 @@ const Bulk = require("../models/bulkBbqItem");
 const HolidayItem = require("../models/holidayItem");
 const Modifiers = require("../models/modifiers")
 
+const TestBulk = require ("../models/testBulk")
+
 
 // - APPETIZERS -
 // GET all appetizers
@@ -357,6 +359,16 @@ exports.getModifiers = async (req, res) => {
   try {
     const modifiers = await Modifiers.find();
     res.status(200).json(modifiers);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+//  Bug Testing
+exports.getTestBulk = async (req, res) => {
+  try {
+    const testBulk = await TestBulk.find();
+    res.status(200).json(testBulk);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
