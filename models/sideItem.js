@@ -14,12 +14,9 @@ const sideSchema = new mongoose.Schema({
     required: true 
   },
   price: {
-    type: Object,
-    default: {},
   },
   pricePerPound: { 
     type: String, 
-    required: true 
   },
   size: [{ type: String }],
   side: { 

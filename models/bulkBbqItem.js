@@ -13,13 +13,10 @@ const bulkBbqSchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
+  price: {
+  },
   pricePerPound: { 
     type: String 
-  },
-  price: {
-    onePound: { type: String },
-    threePounds: { type: String },
-    fivePounds: { type: String },
   },
   size: [{ type: String }],
   bulk: { 
