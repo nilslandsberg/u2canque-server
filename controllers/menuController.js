@@ -246,16 +246,14 @@ exports.getBulkBbqItems = async (req, res) => {
 
 // CREATE a new bulk BBQ item
 exports.createNewBulkBbqItem = async (req, res) => {
+  const newBulkBbq = new Bulk(req.body);
   try {
-    const { bulkBbq } = req.body;
-    console.log('Received bulkBbq:', bulkBbq); // Log received data
-    // Validate and process the bulkBbq object
-    // Save bulkBbq to the database
-    const newBulkBbq = await BulkBbq.create(bulkBbq);
-    res.status(201).json(newBulkBbq);
-  } catch (error) {
+    console.log('Received bulkBbq:', newBulkBbq); 
+    const savedBulkBbq = await newBulkBbq.save();
+    res.status(201).json(savedBulkBbq);
+  } catch (err) {
     console.error('Error creating bulk BBQ:', error);
-    res.status(500).json({ message: 'Failed to create bulk BBQ' });
+    res.status(400).json({ error: err.message });
   }
 };
 
