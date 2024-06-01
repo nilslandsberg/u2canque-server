@@ -5,8 +5,6 @@ const Bulk = require("../models/bulkBbqItem");
 const HolidayItem = require("../models/holidayItem");
 const Modifiers = require("../models/modifiers")
 
-const TestBulk = require ("../models/testBulk")
-
 
 // - APPETIZERS -
 // GET all appetizers
@@ -248,12 +246,16 @@ exports.getBulkBbqItems = async (req, res) => {
 
 // CREATE a new bulk BBQ item
 exports.createNewBulkBbqItem = async (req, res) => {
-  const newBulkBbq = new Bulk(req.body);
   try {
-    const savedBulkBbq = await newBulkBbq.save();
-    res.status(201).json(savedBulkBbq);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
+    const { bulkBbq } = req.body;
+    console.log('Received bulkBbq:', bulkBbq); // Log received data
+    // Validate and process the bulkBbq object
+    // Save bulkBbq to the database
+    const newBulkBbq = await BulkBbq.create(bulkBbq);
+    res.status(201).json(newBulkBbq);
+  } catch (error) {
+    console.error('Error creating bulk BBQ:', error);
+    res.status(500).json({ message: 'Failed to create bulk BBQ' });
   }
 };
 
@@ -378,16 +380,6 @@ exports.editModifiers = async (req, res) => {
     }
 
     res.status(200).json(updatedModifiers);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
-
-//  Bug Testing
-exports.getTestBulk = async (req, res) => {
-  try {
-    const testBulk = await TestBulk.find();
-    res.status(200).json(testBulk);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
