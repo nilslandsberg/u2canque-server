@@ -5,8 +5,6 @@ const Bulk = require("../models/bulkBbqItem");
 const HolidayItem = require("../models/holidayItem");
 const Modifiers = require("../models/modifiers")
 
-const TestBulk = require ("../models/testBulk")
-
 
 // - APPETIZERS -
 // GET all appetizers
