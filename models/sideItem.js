@@ -14,10 +14,12 @@ const sideSchema = new mongoose.Schema({
     required: true 
   },
   price: {
-    pint: { type: String },
-    quart: { type: String },
-    halfPan: { type: String },
-    fullPan: { type: String },
+    type: Object,
+    default: {},
+  },
+  pricePerPound: { 
+    type: String, 
+    required: true 
   },
   size: [{ type: String }],
   side: { 
@@ -28,3 +30,4 @@ const sideSchema = new mongoose.Schema({
 
 const Side = mongoose.model('Side', sideSchema);
 module.exports = Side;
+
