@@ -35,7 +35,7 @@ const lunchSchema = new mongoose.Schema({
     type: Boolean, 
     default: true 
   },
-  day: [{ 
+  type: [{ 
     type: String, 
     enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Every Day'] 
   }],
