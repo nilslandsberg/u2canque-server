@@ -14,14 +14,9 @@ const holidaySchema = new mongoose.Schema({
     required: true 
   },
   price: {
-    default: { type: String },
-    fourPounds: { type: String },
-    fivePounds: { type: String },
-    sixPounds: { type: String },
-    sevenPounds: { type: String },
-    eightPounds: { type: String },
-    ninePounds: { type: String },
-    tenPounds: { type: String },
+  },
+  pricePerPound: { 
+    type: String, 
   },
   size: [{ type: String }],
   holiday: { 
@@ -31,10 +26,10 @@ const holidaySchema = new mongoose.Schema({
   bulk: {
     type: Boolean
   },
-  type: { 
+  type: [{ 
     type: String, 
     enum: ['Christmas', 'Thanksgiving', 'Easter', 'Memorial Day', 'Independence Day']
-  },
+  }],
 });
 
 const HolidayItem = mongoose.model('HolidayItem', holidaySchema);

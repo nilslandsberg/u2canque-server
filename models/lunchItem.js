@@ -18,10 +18,6 @@ const lunchSchema = new mongoose.Schema({
     required: true 
   },
   options: {
-    // chicken: [{ type: String }],
-    // sauce: [{ type: String }],
-    // dressing: [{ type: String }],
-    // toppings: [{ type: String }],
   },
   twoSides: { 
     type: Boolean, 
