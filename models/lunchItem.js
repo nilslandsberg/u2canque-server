@@ -35,10 +35,14 @@ const lunchSchema = new mongoose.Schema({
     type: Boolean, 
     default: true 
   },
-  type: [{ 
-    type: String, 
-    enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Every Day'] 
-  }],
+  // day: [{ 
+  //   type: String, 
+  //   enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Every Day'] 
+  // }],
+  day: {
+    type: Array,
+    default: [],
+  },
 });
 
 const Lunch = mongoose.model('Lunch', lunchSchema);
