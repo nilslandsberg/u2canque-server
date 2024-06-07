@@ -26,13 +26,13 @@ const holidaySchema = new mongoose.Schema({
   bulk: {
     type: Boolean
   },
-  // type: [{ 
-  //   type: String, 
-  //   enum: ['Christmas', 'Thanksgiving', 'Easter', 'Memorial Day', 'Independence Day']
-  // }],
   type: {
     type: Array,
     default: [],
+  },
+  side: { 
+    type: Boolean, 
+    default: false 
   },
 });
 
