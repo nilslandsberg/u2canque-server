@@ -159,8 +159,8 @@ exports.getIndependenceDayOrders = async (req, res) => {
           customOrder: {
             $switch: {
               branches: [
-                { case: { $eq: ["$pickUpDate", "the day before Independence  Day"] }, then: 1 },
-                { case: { $eq: ["$pickUpDate", "Independence  Day"] }, then: 2 },
+                { case: { $eq: ["$pickUpDate", "the day before Independence Day"] }, then: 1 },
+                { case: { $eq: ["$pickUpDate", "Independence Day"] }, then: 2 },
                 { case: { $eq: ["$pickUpDate", "the day after Independence Day"] }, then: 3 }
               ],
               default: 0 
@@ -170,7 +170,7 @@ exports.getIndependenceDayOrders = async (req, res) => {
       },
       { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
     ]);
-    console.log(getIndependenceDayOrders);
+    console.log(sortedIndependenceDayOrders);
     const customerPopulatedIndependenceDayOrders = await HolidayOrder.populate(sortedIndependenceDayOrders, { path: 'customer' });
 
     return res.status(200).json({ success: true, independenceDayOrders: customerPopulatedIndependenceDayOrders });
