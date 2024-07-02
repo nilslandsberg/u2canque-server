@@ -170,7 +170,7 @@ exports.getIndependenceDayOrders = async (req, res) => {
       },
       { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
     ]);
-    
+    console.log(getIndependenceDayOrders);
     const customerPopulatedIndependenceDayOrders = await HolidayOrder.populate(sortedIndependenceDayOrders, { path: 'customer' });
 
     return res.status(200).json({ success: true, independenceDayOrders: customerPopulatedIndependenceDayOrders });
