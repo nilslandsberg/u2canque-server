@@ -136,6 +136,10 @@ router
   .get(checkAuth, holidayOrderController.getIndependenceDayOrders)
 
 router
+  .route('/order/holiday/ribs-flash-sale')
+  .get(checkAuth, holidayOrderController.getRibsFlashSaleOrders)
+
+router
   .route('/order/holiday/:orderId')
   .delete(checkAuth, holidayOrderController.cancelHolidayOrder)
 

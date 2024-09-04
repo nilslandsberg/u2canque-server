@@ -179,6 +179,34 @@ exports.getIndependenceDayOrders = async (req, res) => {
   }
 }
 
+exports.getRibsFlashSaleOrders = async (req, res) => { 
+  try {
+    const sortedRibsFlashSaleOrders = await HolidayOrder.aggregate([
+      { $match: { holiday: "Ribs Flash Sale" } }, // Filter documents where holiday is "Ribs Flash Sale" and is in the current month
+      {
+        $addFields: {
+          customOrder: {
+            $switch: {
+              branches: [
+                { case: { $eq: ["$pickUpDate", "Friday, September 6th"] }, then: 1 },
+                { case: { $eq: ["$pickUpDate", "Saturday, September 7th"] }, then: 2 },
+              ],
+              default: 0 
+            }
+          }
+        }
+      },
+      { $sort: { customOrder: 1, pickUpTime: 1 } } // Sort based on the customOrder field
+    ]);
+    
+    const customerPopulatedRibsFlashSaleOrders = await HolidayOrder.populate(sortedRibsFlashSaleOrders, { path: 'customer' });
+
+    return res.status(200).json({ success: true, ribsFlashSaleOrders: customerPopulatedRibsFlashSaleOrders });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+}
+
 exports.cancelHolidayOrder = async (req, res) => {
   const { orderId } = req.params
   console.log(orderId)
