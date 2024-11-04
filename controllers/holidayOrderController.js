@@ -66,7 +66,7 @@ exports.getEasterOrders = async (req, res) => {
 exports.getThanksgivingOrders = async (req, res) => {
   try {
     const sortedThanksgivingOrders = await HolidayOrder.aggregate([
-      { $match: { holiday: "thanksgiving", year: new Date().getFullYear() } }, // Filter documents where holiday is "Thanksgiving" and is in the current year
+      { $match: { holiday: "Thanksgiving", year: new Date().getFullYear() } }, // Filter documents where holiday is "Thanksgiving" and is in the current year
       {
         $addFields: {
           customOrder: {
